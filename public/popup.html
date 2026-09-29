@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Meet Chat Blocker</title>
+    <style>
+      body {
+        width: 260px;
+        margin: 0;
+        padding: 16px;
+        font: 13px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        color: #202124;
+        background: #fff;
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        cursor: pointer;
+      }
+      input {
+        width: 18px;
+        height: 18px;
+        accent-color: #1a73e8;
+        cursor: pointer;
+      }
+      #status {
+        margin: 10px 0 0;
+        color: #5f6368;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Meet Chat Blocker</h1>
+    <label>
+      Block chat in Google Meet
+      <input id="enabled" type="checkbox" />
+    </label>
+    <p id="status"></p>
+    <script src="popup.js"></script>
+  </body>
+</html>

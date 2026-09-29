@@ -1,0 +1,64 @@
+/* Everything is scoped to html.mcb-on, which content.ts toggles from the popup switch. */
+
+/* Incoming-message popups. */
+html.mcb-on [jsname="JDWQFb"] {
+  display: none !important;
+}
+
+/* Unread "new message" dot: every sibling of the chat button's tooltip wrapper. */
+html.mcb-on div:has(> span[data-is-tooltip-wrapper] > button[data-panel-id="2"]) > :not([data-is-tooltip-wrapper]) {
+  display: none !important;
+}
+
+/* The chat button itself: greyed out and not clickable. */
+html.mcb-on button[data-panel-id="2"] {
+  opacity: 0.35 !important;
+  filter: grayscale(1) !important;
+  pointer-events: none !important;
+}
+
+html.mcb-on span[data-is-tooltip-wrapper]:has(> button[data-panel-id="2"]) {
+  cursor: not-allowed !important;
+}
+
+/* The chat panel, if it is open: contents blurred and inert, covered by an overlay. */
+html.mcb-on [data-mcb-panel] > :not(.mcb-overlay) {
+  filter: grayscale(1) blur(6px) !important;
+  opacity: 0.35 !important;
+  user-select: none !important;
+  pointer-events: none !important;
+}
+
+.mcb-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: inherit;
+  background: rgba(60, 64, 67, 0.72);
+  color: #e8eaed;
+  font: 500 15px/1.4 "Google Sans", Roboto, Arial, sans-serif;
+  cursor: not-allowed;
+}
+
+.mcb-overlay p {
+  margin: 0;
+}
+
+.mcb-overlay button {
+  padding: 8px 18px;
+  border: 1px solid #9aa0a6;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.mcb-overlay button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
